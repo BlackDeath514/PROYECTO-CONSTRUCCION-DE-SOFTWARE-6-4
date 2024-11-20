@@ -1,0 +1,103 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Usuarios\\Cristopher Pionce\\Escritorio\\PROYECTO REPARACIONES\\ReparacionesDB\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1855ADB1-7502-4F6D-BFD3-9F0C5A6EC126}|ReparacionesDB\\CapaPresentacion.csproj|d:\\usuarios\\cristopher pionce\\escritorio\\proyecto reparaciones\\reparacionesdb\\reparacionesdb\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1855ADB1-7502-4F6D-BFD3-9F0C5A6EC126}|ReparacionesDB\\CapaPresentacion.csproj|solutionrelative:reparacionesdb\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1855ADB1-7502-4F6D-BFD3-9F0C5A6EC126}|ReparacionesDB\\CapaPresentacion.csproj|d:\\usuarios\\cristopher pionce\\escritorio\\proyecto reparaciones\\reparacionesdb\\reparacionesdb\\frmregistrarequipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1855ADB1-7502-4F6D-BFD3-9F0C5A6EC126}|ReparacionesDB\\CapaPresentacion.csproj|solutionrelative:reparacionesdb\\frmregistrarequipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1855ADB1-7502-4F6D-BFD3-9F0C5A6EC126}|ReparacionesDB\\CapaPresentacion.csproj|d:\\usuarios\\cristopher pionce\\escritorio\\proyecto reparaciones\\reparacionesdb\\reparacionesdb\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1855ADB1-7502-4F6D-BFD3-9F0C5A6EC126}|ReparacionesDB\\CapaPresentacion.csproj|solutionrelative:reparacionesdb\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61404867-3C44-4042-B8E0-7B62DEFE294D}|CapaNegocio\\CapaNegocio.csproj|d:\\usuarios\\cristopher pionce\\escritorio\\proyecto reparaciones\\reparacionesdb\\capanegocio\\mantenimiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61404867-3C44-4042-B8E0-7B62DEFE294D}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\mantenimiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61404867-3C44-4042-B8E0-7B62DEFE294D}|CapaNegocio\\CapaNegocio.csproj|d:\\usuarios\\cristopher pionce\\escritorio\\proyecto reparaciones\\reparacionesdb\\capanegocio\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61404867-3C44-4042-B8E0-7B62DEFE294D}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.cs",
+              "DocumentMoniker": "D:\\Usuarios\\Cristopher Pionce\\Escritorio\\PROYECTO REPARACIONES\\ReparacionesDB\\ReparacionesDB\\Login.cs",
+              "RelativeDocumentMoniker": "ReparacionesDB\\Login.cs",
+              "ToolTip": "D:\\Usuarios\\Cristopher Pionce\\Escritorio\\PROYECTO REPARACIONES\\ReparacionesDB\\ReparacionesDB\\Login.cs",
+              "RelativeToolTip": "ReparacionesDB\\Login.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T23:47:02.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmRegistrarEquipo.cs",
+              "DocumentMoniker": "D:\\Usuarios\\Cristopher Pionce\\Escritorio\\PROYECTO REPARACIONES\\ReparacionesDB\\ReparacionesDB\\frmRegistrarEquipo.cs",
+              "RelativeDocumentMoniker": "ReparacionesDB\\frmRegistrarEquipo.cs",
+              "ToolTip": "D:\\Usuarios\\Cristopher Pionce\\Escritorio\\PROYECTO REPARACIONES\\ReparacionesDB\\ReparacionesDB\\frmRegistrarEquipo.cs",
+              "RelativeToolTip": "ReparacionesDB\\frmRegistrarEquipo.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAIwJ0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T23:45:36.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmPrincipal.cs",
+              "DocumentMoniker": "D:\\Usuarios\\Cristopher Pionce\\Escritorio\\PROYECTO REPARACIONES\\ReparacionesDB\\ReparacionesDB\\frmPrincipal.cs",
+              "RelativeDocumentMoniker": "ReparacionesDB\\frmPrincipal.cs",
+              "ToolTip": "D:\\Usuarios\\Cristopher Pionce\\Escritorio\\PROYECTO REPARACIONES\\ReparacionesDB\\ReparacionesDB\\frmPrincipal.cs",
+              "RelativeToolTip": "ReparacionesDB\\frmPrincipal.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T23:44:59.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Mantenimiento.cs",
+              "DocumentMoniker": "D:\\Usuarios\\Cristopher Pionce\\Escritorio\\PROYECTO REPARACIONES\\ReparacionesDB\\CapaNegocio\\Mantenimiento.cs",
+              "RelativeDocumentMoniker": "CapaNegocio\\Mantenimiento.cs",
+              "ToolTip": "D:\\Usuarios\\Cristopher Pionce\\Escritorio\\PROYECTO REPARACIONES\\ReparacionesDB\\CapaNegocio\\Mantenimiento.cs",
+              "RelativeToolTip": "CapaNegocio\\Mantenimiento.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T21:35:30.309Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "D:\\Usuarios\\Cristopher Pionce\\Escritorio\\PROYECTO REPARACIONES\\ReparacionesDB\\CapaNegocio\\Cliente.cs",
+              "RelativeDocumentMoniker": "CapaNegocio\\Cliente.cs",
+              "ToolTip": "D:\\Usuarios\\Cristopher Pionce\\Escritorio\\PROYECTO REPARACIONES\\ReparacionesDB\\CapaNegocio\\Cliente.cs",
+              "RelativeToolTip": "CapaNegocio\\Cliente.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACEAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T06:14:04.458Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
