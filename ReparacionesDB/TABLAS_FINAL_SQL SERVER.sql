@@ -1,7 +1,64 @@
+-------------------------------------DATA BASE--------------------------------------------
+--CREACION DE LA DATABSE Y COMANDO PARA USARLA
 CREATE DATABASE DB_POE_FINAL;
 USE DB_POE_FINAL
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 
---TABLA DE CLIENTES 
+
+-----------------------------------------------------------------------------------------------
+-------------------------------------USUARIO LOGIN--------------------------------------------
+
+
+--CREACION DE TABLA DE USUARIOS LOGIN
+CREATE TABLE USER_SESSION(
+	ID_USER INT IDENTITY (1,1) PRIMARY KEY,
+	USUARIO VARCHAR(10) NOT NULL,
+	CONTRASENA VARCHAR(10) NOT NULL
+);
+
+SELECT * FROM USER_SESSION
+
+
+--PROCEDIMIENTO PARA CREAR USUARIOS NUEVOS
+GO
+CREATE PROCEDURE SP_CREAR_USERS
+@Usuario varchar(10),
+@Contrasena varchar(10)
+AS
+BEGIN
+	INSERT INTO USER_SESSION(USUARIO,CONTRASENA) VALUES (@Usuario, @Contrasena) 
+END
+GO
+
+--EJECUTAR PARA CREAR EL PRIMER USUARIO PARA INICIAR SESION
+SP_CREAR_USERS 'PROYECTO',12345
+
+
+--PROCEDIMIENTO QUE VALIDA EL USUARIO Y LA CONTRASEÑA
+GO
+CREATE PROCEDURE SP_VALIDAR_USER
+    @Usuario_u VARCHAR(10),
+    @Contrasena_u VARCHAR(50)
+AS
+BEGIN
+    SELECT COUNT(1) 
+    FROM USER_SESSION 
+    WHERE USUARIO = @Usuario_u AND CONTRASENA = @Contrasena_u
+END
+GO
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------
+---------------------------------------CLIENTE-----------------------------------------------
+--CREACION DE LA TABLA CLIENTES
 CREATE TABLE CLIENTES(
 	ID_CLIENTE INT IDENTITY(1,1) PRIMARY KEY,
 	NOMBRE_CLIENTE VARCHAR(15) NOT NULL,
@@ -12,15 +69,12 @@ CREATE TABLE CLIENTES(
 	
 );
 
-SELECT * FROM CLIENTES
-
-DROP TABLE CLIENTES
-
+--INSERCION INICIAL PARA PROBAR QUE INGRESA LOS DATOS CORRECTAMENTE
 INSERT INTO CLIENTES(NOMBRE_CLIENTE,APELLIDO_CLIENTE,CEDULA_CLIENTE,NUMERO_CLIENTE,DIRECCION_CLIENTE)
 VALUES('Juan','Perez','0956732036','0912365478','La alborada 8 etapa ');
 
 
---Procedimiento de cliente------
+--PROCEDIMIENTO QUE OBTIENE TODOS LOS CLIENTES
 GO
 CREATE PROCEDURE SP_GET_ALL_CLIENTE
 AS
@@ -29,7 +83,7 @@ BEGIN
 END
 GO
 
---crear los clientes nuevos----------
+--PROCEDIMIENTO QUE CREAR NUEVOS CLIENTES EN LA TABLA
 GO
 CREATE PROCEDURE SP_CREAR_CLIENTE(
 @n_cliente VARCHAR (15),
@@ -45,7 +99,7 @@ VALUES(@n_cliente,@a_cliente,@c_cliente,@num_cliente,@d_cliente);
 END
 GO
 
---Eliminar clientes
+--PROCEDIMIENTO PARA ELIMINAR CLIENTES DE LA TABLA
 GO
 CREATE PROCEDURE SP_ELIMINAR_CLIENTE
     @ID_CLIENTE INT
@@ -56,7 +110,7 @@ BEGIN
 END
 GO
 
--------Obtener nombre de cliente
+--PROCEDIMIENTO QUE OBTIENE SOLO LOS NOMBRES DE LOS CLIENTES
 GO
 CREATE PROCEDURE SP_GET_NOMBRE_CLIENTE
 AS
@@ -64,9 +118,16 @@ BEGIN
 	SELECT ID_CLIENTE, NOMBRE_CLIENTE FROM CLIENTES
 END
 GO
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 
--------------------------TABLA NUEVA---------------------
----------CELULAR
+
+
+
+
+-----------------------------------------------------------------------------------------------
+---------------------------------EQUIPOS CELULARES--------------------------------------------
+--CREACION DE LA TABLA EQUIPOS CELULARES
 
 CREATE TABLE EQUIPOSCELULARES(
 	ID_EQUIPO INT IDENTITY(1,1) PRIMARY KEY,
@@ -78,15 +139,13 @@ CREATE TABLE EQUIPOSCELULARES(
 	REFERENCES CLIENTES(ID_CLIENTE) 
 	ON DELETE CASCADE
 );
---------------
-SELECT * FROM EQUIPOSCELULARES
 
-DROP TABLE EQUIPOSCELULARES
-
+--INSERCION INICIAL PARA VERIFICAR QUE GUARDE CORRECTAMENTE LOS DATOS EN LA TABLA
 INSERT INTO EQUIPOSCELULARES(MODELO_EQUIPO,MARCA_EQUIPO,DETALLE_EQUIPO,CLIENTE_ID)
 VALUES('iPhone 10','Apple','batería dañada',1);
 
---PROCEDIMIENTO DE CREAR CELULAR
+
+--PROCEDIMIENTO QUE CREA LOS CELULARES EN LA TABLA
 CREATE PROCEDURE SP_CREAR_CELULARR(
     @modelo VARCHAR(50),
     @marca VARCHAR(50),
@@ -107,7 +166,7 @@ BEGIN
 END;
 GO
 
---Eliminar celulares
+--PROCEDIMIENTO PARA ELIMINAR CELULARES DE LA TABLA
 GO
 CREATE PROCEDURE SP_ELIMINAR_CELULAR
     @ID_EQUIPO INT
@@ -121,7 +180,7 @@ GO
 EXEC SP_ELIMINAR_CELULAR @ID_EQUIPO = 2;
 
 
------Procedimiento de celulares
+--PROCEDIMIENTO QUE OBTIENE TODOS LOS CELULARES DE LOS CLIENTES
 GO
 CREATE PROCEDURE SP_GET_ALL_CELULAR
 	@ID_CLIENTE INT
@@ -132,7 +191,7 @@ BEGIN
 	WHERE CLIENTE_ID = @ID_CLIENTE;
 END;
 
----ESTO ES PARA MOSTRAR EL CELULAR CUANDO SE ELIGE EL NOMBRE DEL DUEÑO EN EL MANTENIMIENTO
+--ESTO ES PARA MOSTRAR EL CELULAR CUANDO SE ELIGE EL NOMBRE DEL DUEÑO EN EL MANTENIMIENTO
 GO
 CREATE PROCEDURE SP_CELULAR_CLIENTE
     @CLIENTE_ID INT
@@ -143,54 +202,17 @@ BEGIN
     WHERE CLIENTE_ID = @CLIENTE_ID
 END
 GO
-
---------TABLA NUEVA-----------------
----- USER	
-
-DROP TABLE USER_SESSION
-CREATE TABLE USER_SESSION(
-	ID_USER INT IDENTITY (1,1) PRIMARY KEY,
-	USUARIO VARCHAR(10) NOT NULL,
-	CONTRASENA VARCHAR(10) NOT NULL
-);
-
-SELECT * FROM USER_SESSION
-
-
---procedimiento para crear usuarios nuevos
-GO
-CREATE PROCEDURE SP_CREAR_USERS
-@Usuario varchar(10),
-@Contrasena varchar(10)
-AS
-BEGIN
-	INSERT INTO USER_SESSION(USUARIO,CONTRASENA) VALUES (@Usuario, @Contrasena) 
-END
-GO
-
-------------------------------------------------------------------------------
---IMPORTANTE: EJECUTAR ESTA LINEA PARA CREAR EL USUARIO NUEVO PARA INICIAR SESION
-SP_CREAR_USERS 'PROYECTO',12345
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 
 
 
---procedimiento que valida el usuario y contraseña
-GO
-CREATE PROCEDURE SP_VALIDAR_USER
-    @Usuario_u VARCHAR(10),
-    @Contrasena_u VARCHAR(50)
-AS
-BEGIN
-    SELECT COUNT(1) 
-    FROM USER_SESSION 
-    WHERE USUARIO = @Usuario_u AND CONTRASENA = @Contrasena_u
-END
-GO
 
 
-------------TABLA NUEVA -----------------
---------- TECNICOS
+-----------------------------------------------------------------------------------------------
+-------------------------------------TECNICOS--------------------------------------------
 
+--CREACION DE LA TABLA TECNICOS
 CREATE TABLE TECNICOS(
 	ID_TECNICO INT IDENTITY(1,1) PRIMARY KEY,
 	NOMBRE_TECNICO VARCHAR(15) NOT NULL,
@@ -200,14 +222,13 @@ CREATE TABLE TECNICOS(
 	EXPERIENCIA_TECNICO VARCHAR(50) NOT NULL
 );
 
-SELECT * FROM TECNICOS
 
-DROP TABLE TECNICOS
-
+--INSERCION INICIAL PARA VERIFICAR QUE GUARDE CORRECTAMENTE LOS DATOS EN LA TABLA
 INSERT INTO TECNICOS(NOMBRE_TECNICO,APELLIDO_TECNICO,CEDULA_TECNICO,NUMERO_TECNICO,EXPERIENCIA_TECNICO)
 VALUES('Juan','Perez','0956732036','0912365478','5 meses');
 
---procedimiento que obtiene los nombres
+
+--PROCEDIMIENTO QUE OBTIENE LOS NOMBRES
 GO
 CREATE PROCEDURE SP_GET_NOMBRE_TECNICO
 AS
@@ -216,7 +237,8 @@ BEGIN
 END
 GO
 
---Procedimiento de tecnico 
+
+--PROCEDIMIENTO QUE OBTIENE TODOS LOS TECNICOS 
 GO
 CREATE PROCEDURE SP_GET_ALL_TECNICO
 AS
@@ -225,7 +247,8 @@ BEGIN
 END
 GO
 
---crear los tecnicos nuevos
+
+--PROCEDIMIENTO DE CREACION DE LOS NUEVOS TECNICOS
 GO
 CREATE PROCEDURE SP_CREAR_TECNICO(
 @n_tecnico VARCHAR (15),
@@ -241,7 +264,8 @@ VALUES(@n_tecnico,@a_tecnico,@c_tecnico,@num_tecnico,@ex_tecnico);
 END
 GO
 
---eliminar los TECNICOS
+
+--PROCEDIMIENTO PARA ELIMINAR TECNICOS DE LA TABLA
 GO
 CREATE PROCEDURE SP_ELIMINAR_TECNICO
 @n_tecnico VARCHAR (15),
@@ -261,11 +285,18 @@ SET NOCOUNT ON;
 		EXPERIENCIA_TECNICO=@ex_tecnico;
 END
 GO
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 
 
----------------TABLA NUEVA--------------------
-------MANTENIMIENTO
 
+
+
+
+-----------------------------------------------------------------------------------------------
+-------------------------------------MANTENIMIENTO--------------------------------------------
+
+--CREACION DE LA TABLA DE MANTENIMIENTO
 CREATE TABLE MANTENIMIENTO(
 	ID_MANTENIMIENTO INT IDENTITY(1,1) PRIMARY KEY,
 	FECHA_MANTENIMIENTO DATETIME,
@@ -274,11 +305,8 @@ CREATE TABLE MANTENIMIENTO(
 	REPUESTOS VARCHAR(MAX) --SE ALMACENA LA LISTA DE REPUESTOS SEPARADOS X UNA COMA
 );
 
-SELECT * FROM MANTENIMIENTO
 
-DROP TABLE MANTENIMIENTO
-
---PROCEDIMIENTO DE CREAR MANTENIMIENTO
+--PROCEDIMIENTO QUE CREAR LOS NUEVOS MANTENIMIENTOS
 CREATE PROCEDURE SP_CREAR_MANTENIMIENTO
 	@FECHA_MANTENIMIENTO DATETIME,
 	@DESCRIPCION VARCHAR(255),
