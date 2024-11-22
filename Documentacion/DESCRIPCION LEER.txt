@@ -1,1 +1,0 @@
-Sistema de gestion de reparacion de celulares con SQL server management studio
